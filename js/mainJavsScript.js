@@ -1,7 +1,7 @@
 /*导入动态鼠标ani文件,使用的第三方库*/
 import { setANICursor } from "ani-cursor.js";
-setANICursor("body", "./cursor/normal.ani");
-setANICursor(".slogan .try-btn", "./cursor/Link.ani");
+setANICursor("body", "../cursor/normal.ani");
+setANICursor(".slogan .try-btn", "../cursor/Link.ani");
 document.getElementById("try-btn").onclick = function postNow() {
   location.href = "https://biyao.org";
 };
@@ -47,9 +47,9 @@ document.getElementById("try-btn").onclick = function postNow() {
 /* ---*/
 /*设置鼠标按下时的样式(无法用css原生支持*/
 document.addEventListener("mousedown", function () {
-  document.body.style.cursor = 'url("/cursor/ArrowActice.png"), auto'; // 点击时的鼠标样式
+  document.body.style.cursor = 'url("../cursor/ArrowActice.png"), auto'; // 点击时的鼠标样式
 });
 
 document.addEventListener("mouseup", function () {
-  document.body.style.cursor = 'url("/cursor/Arrow.png"), auto'; // 松开鼠标恢复默认样式
+  document.body.style.cursor = 'url("../cursor/Arrow.png"), auto'; // 松开鼠标恢复默认样式
 });
