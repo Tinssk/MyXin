@@ -170,3 +170,15 @@ body:active {
   font-size: 35px;
   font-weight: 550;
 }
+
+/*添加启动时的浮现效果*/
+.fade-in {
+  opacity: 0; /* 初始透明度 */
+  transform: translateY(-20px); /* 初始位置向上 */
+  transition: opacity 1s ease, transform 1s ease; /* 动画效果 */
+}
+
+.fade-in.active {
+  opacity: 1; /* 最终完全显示 */
+  transform: translateY(0); /* 最终位置 */
+}

@@ -53,3 +53,25 @@ document.addEventListener("mousedown", function () {
 document.addEventListener("mouseup", function () {
   document.body.style.cursor = 'url("./cursor/Arrow.png"), auto'; // 松开鼠标恢复默认样式
 });
+
+/*添加浮现效果*/
+// script.js
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeInElements = document.querySelectorAll(".fade-in");
+
+  const handleScroll = () => {
+    fadeInElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+        el.classList.add("active");
+      }
+    });
+  };
+
+  // 初次加载检查元素是否在视口中
+  handleScroll();
+
+  // 滚动时触发检查
+  window.addEventListener("scroll", handleScroll);
+});
+/* ---*/
