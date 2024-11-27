@@ -1,7 +1,7 @@
 /*导入动态鼠标ani文件,使用的第三方库*/
 import { setANICursor } from "ani-cursor.js";
-setANICursor("body", "/cursor/normal.ani");
-setANICursor(".slogan .try-btn", "/cursor/Link.ani");
+setANICursor("body", "./cursor/normal.ani");
+setANICursor(".slogan .try-btn", "./cursor/Link.ani");
 document.getElementById("try-btn").onclick = function postNow() {
   location.href = "https://biyao.org";
 };
