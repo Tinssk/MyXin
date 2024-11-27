@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes identifier {
+}
+body {
+  font-family: Gilroy Semi Bold, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  cursor: url(/cursor/Arrow.png), default;
+}
+
+body:active {
+  cursor: url(/cursor/ArrowActice.png), auto;
+}
+
+.video-box {
+  position: relative;
+  height: 100vh;
+  background-color: #c1cff7;
+  /*进行视频裁剪*/
+  overflow: hidden;
+}
+
+.video-box .video-background {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /*保证视频内容始终居中*/
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 800px;
+}
+
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(19, 60, 154, 0.1);
+}
+
+.layer img {
+  width: 200px; /* 设置图片宽度为 200 像素 */
+  height: 150px; /* 设置图片高度为 150 像素 */
+  margin-top: 15px;
+  margin-left: 100px;
+}
+
+.author {
+  position: absolute;
+  right: 10%;
+  /* 距离右边 10 像素 */
+  bottom: 10%;
+  /* 距离底部 10 像素 */
+  font-size: 40px;
+  /* 设置字体大小 */
+  font-weight: 600;
+  background: linear-gradient(to right, #f4f4f5, #06a877);
+  -webkit-background-clip: text; /* Safari/Chrome */
+  background-clip: text; /* 在支持的浏览器中 */
+  color: transparent; /* 文字本身颜色设置为透明 */
+}
+
+.slogan {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 684px;
+  color: white;
+  text-align: center;
+}
+
+.slogan .subtitle {
+  font-weight: 550;
+  font-size: 20px;
+  letter-spacing: 10px;
+  margin: 0 0 16px;
+}
+
+/*为副标题后面添加图标*/
+.slogan .subtitle::after {
+  content: "";
+  /* 必须设置 content，伪元素才会显示 */
+  display: inline-block;
+  /* 让伪元素像图片一样展示 */
+  width: 20px;
+  /* 图标宽度 */
+  height: 20px;
+  /* 图标高度 */
+  background: url("/iocn.png") no-repeat center;
+  /* 替换为你的图标路径 */
+  background-size: contain;
+  /* 确保图标适应大小 */
+  vertical-align: middle;
+  /* 对齐文字 */
+}
+
+.slogan .title {
+  font-weight: 550;
+  font-size: 56px;
+  margin: 0 0 16px;
+}
+
+.slogan .try-btn {
+  position: relative;
+  left: 50%;
+  width: 156px;
+  height: 54px;
+  line-height: 54px;
+  margin-top: 40px;
+  margin-left: -78px;
+  color: #fbfbfd;
+  background: linear-gradient(45deg, #f4f4f5, #3dcba0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* 添加阴影效果 */
+  text-align: center;
+  border-radius: 100px;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+  /* 添加平滑过渡效果 */
+  /* cursor: url(/cursor/Pointing.png), auto; */
+}
+
+.try-btn:hover {
+  background: linear-gradient(45deg, #3dcba0, #f4f4f5);
+  /* 悬停时反转渐变方向 */
+  transform: translateY(-3px);
+  /* 悬停时向上浮动 */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  /* 增强阴影效果 */
+}
+
+.try-btn:active {
+  transform: translateY(0);
+  /* 点击时恢复位置 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* 点击时减少阴影 */
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+
+.content .avatar-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.content .avatar-box .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 25px;
+}
+
+.content .avatar-box .nickname {
+  font-size: 35px;
+  font-weight: 550;
+}
