@@ -2,9 +2,25 @@
 import { setANICursor } from "ani-cursor.js";
 setANICursor("body", "./cursor/normal.ani");
 setANICursor(".slogan .try-btn", "./cursor/Link.ani");
+setANICursor("#music", "./cursor/Link.ani");
 document.getElementById("try-btn").onclick = function postNow() {
   location.href = "https://biyao.org";
 };
+/*把视频设置为有声音,方便以后改动*/
+const video = document.querySelector(".video-background");
+video.muted = false;
+const toggleButton = document.getElementById("music"); //获取声音按钮开关
+// 切换视频的声音状态
+toggleButton.addEventListener("click", () => {
+  if (video.muted) {
+    video.muted = false; // 取消静音
+    toggleButton.src = "./iocn/music50.png"; // 设置开音图标
+  } else {
+    video.muted = true; // 设置为静音
+    toggleButton.src = "./iocn/music50-off.png"; // 设置开音图标
+  }
+});
+/*--*/
 /*添加点击特效*/
 (function () {
   var a_idx = 0;

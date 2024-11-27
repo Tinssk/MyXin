@@ -2,11 +2,14 @@
   margin: 0;
   padding: 0;
 }
-
-@keyframes identifier {
+@font-face {
+  font-family: "汉仪文黑-85w"; /* 自定义的字体名称 */
+  src: url("../fonts/汉仪文黑-85W.ttf") format("truetype"); /* 字体文件路径 */
+  font-weight: normal;
+  font-style: normal;
 }
 body {
-  font-family: Gilroy Semi Bold, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-family: "汉仪文黑-85w", Gilroy Semi Bold, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   cursor: url(../cursor/Arrow.png), default;
 }
 
@@ -181,4 +184,36 @@ body:active {
 .fade-in.active {
   opacity: 1; /* 最终完全显示 */
   transform: translateY(0); /* 最终位置 */
+}
+/*音乐开关*/
+#music {
+  position: absolute;
+  width: 50px; /* 设置图片宽度为 200 像素 */
+  height: 50px; /* 设置图片高度为 150 像素 */
+  right: 3%;
+  /* 距离右边 10 像素 */
+  top: 0%;
+  /* 距离底部 10 像素 */
+  background: linear-gradient(45deg, #f4f4f5, #3dcba0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* 添加阴影效果 */
+  text-align: center;
+  border-radius: 100px;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+#music:hover {
+  background: linear-gradient(45deg, #3dcba0, #f4f4f5);
+  /* 悬停时反转渐变方向 */
+  transform: translateY(-3px);
+  /* 悬停时向上浮动 */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  /* 增强阴影效果 */
+}
+#music:active {
+  transform: translateY(0);
+  /* 点击时恢复位置 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* 点击时减少阴影 */
 }
