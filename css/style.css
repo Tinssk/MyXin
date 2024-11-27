@@ -7,11 +7,11 @@
 }
 body {
   font-family: Gilroy Semi Bold, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  cursor: url(/cursor/Arrow.png), default;
+  cursor: url(./cursor/Arrow.png), default;
 }
 
 body:active {
-  cursor: url(/cursor/ArrowActice.png), auto;
+  cursor: url(./cursor/ArrowActice.png), auto;
 }
 
 .video-box {
@@ -92,7 +92,7 @@ body:active {
   /* 图标宽度 */
   height: 20px;
   /* 图标高度 */
-  background: url("/iocn.png") no-repeat center;
+  background: url("./iocn.png") no-repeat center;
   /* 替换为你的图标路径 */
   background-size: contain;
   /* 确保图标适应大小 */
@@ -124,7 +124,7 @@ body:active {
 
   transition: all 0.3s ease;
   /* 添加平滑过渡效果 */
-  /* cursor: url(/cursor/Pointing.png), auto; */
+  cursor: url(./cursor/Pointing.png), auto;
 }
 
 .try-btn:hover {
