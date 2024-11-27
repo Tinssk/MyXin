@@ -8,7 +8,6 @@ document.getElementById("try-btn").onclick = function postNow() {
 };
 /*把视频设置为有声音,方便以后改动*/
 const video = document.querySelector(".video-background");
-video.muted = false;
 const toggleButton = document.getElementById("music"); //获取声音按钮开关
 // 切换视频的声音状态
 toggleButton.addEventListener("click", () => {
@@ -16,7 +15,7 @@ toggleButton.addEventListener("click", () => {
     video.muted = false; // 取消静音
     toggleButton.src = "./iocn/music50.png"; // 设置开音图标
   } else {
-    video.muted = true; // 设置为静音
+    video.muted = "muted"; // 设置为静音
     toggleButton.src = "./iocn/music50-off.png"; // 设置开音图标
   }
 });
