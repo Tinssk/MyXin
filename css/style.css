@@ -47,6 +47,7 @@ body:active {
   opacity: 1; /* 最终完全显示 */
   transform: translateY(0); /* 最终位置 */
 }
+
 .layer {
   position: absolute;
   left: 0;
