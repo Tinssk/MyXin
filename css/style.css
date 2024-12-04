@@ -31,12 +31,22 @@ body:active {
   top: 50%;
   /*保证视频内容始终居中*/
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  width: 100vw; /* 设置宽度为视口宽度 */
+  height: 100vh; /* 设置高度为视口高度 */
   object-fit: cover;
   min-height: 800px;
 }
+/*添加启动时的浮现效果*/
+.fade-in {
+  opacity: 0; /* 初始透明度 */
+  transform: translateY(-20px); /* 初始位置向上 */
+  transition: opacity 1s ease, transform 1s ease; /* 动画效果 */
+}
 
+.fade-in.active {
+  opacity: 1; /* 最终完全显示 */
+  transform: translateY(0); /* 最终位置 */
+}
 .layer {
   position: absolute;
   left: 0;
@@ -174,17 +184,6 @@ body:active {
   font-weight: 550;
 }
 
-/*添加启动时的浮现效果*/
-.fade-in {
-  opacity: 0; /* 初始透明度 */
-  transform: translateY(-20px); /* 初始位置向上 */
-  transition: opacity 1s ease, transform 1s ease; /* 动画效果 */
-}
-
-.fade-in.active {
-  opacity: 1; /* 最终完全显示 */
-  transform: translateY(0); /* 最终位置 */
-}
 /*音乐开关*/
 #music {
   position: absolute;
