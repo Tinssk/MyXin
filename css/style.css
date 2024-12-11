@@ -58,8 +58,7 @@ body:active {
 }
 
 .layer img {
-  width: 200px; /* 设置图片宽度为 200 像素 */
-  height: 150px; /* 设置图片高度为 150 像素 */
+  width: 170px; /* 设置图片宽度为 200 像素 */
   margin-top: 15px;
   margin-left: 100px;
 }
