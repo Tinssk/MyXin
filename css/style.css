@@ -139,10 +139,26 @@ body:active {
   /* 添加平滑过渡效果 */
   cursor: url(../cursor/Pointing.png), auto;
 }
+/*为渐变背景添加平滑过渡,通过给伪元素添加透明层,然后给透明层添加过渡的方式*/
+.try-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3dcba0, #f4f4f5);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 
+  border-radius: 100px;
+  z-index: -1;
+}
+
+.try-btn:hover::before {
+  opacity: 1;
+}
 .try-btn:hover {
-  background: linear-gradient(45deg, #3dcba0, #f4f4f5);
-  /* 悬停时反转渐变方向 */
   transform: translateY(-3px);
   /* 悬停时向上浮动 */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
@@ -185,32 +201,47 @@ body:active {
 }
 
 /*音乐开关*/
-#music {
+.music-btn {
   position: absolute;
-  width: 50px; /* 设置图片宽度为 200 像素 */
-  height: 50px; /* 设置图片高度为 150 像素 */
+  width: 50px;
+  height: 50px;
   right: 3%;
   /* 距离右边 10 像素 */
-  top: 0%;
+  top: 1%;
   /* 距离底部 10 像素 */
+  overflow: hidden; /* 裁剪超出部分 */
   background: linear-gradient(45deg, #f4f4f5, #3dcba0);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* 添加阴影效果 */
-  text-align: center;
-  border-radius: 100px;
-  font-weight: 600;
 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 100px;
   transition: all 0.3s ease;
 }
-#music:hover {
-  background: linear-gradient(45deg, #3dcba0, #f4f4f5);
-  /* 悬停时反转渐变方向 */
+
+/*为渐变背景添加平滑过渡,通过给伪元素添加透明层,然后给透明层添加过渡的方式*/
+.music-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3dcba0, #f4f4f5);
+  border-radius: 100px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.music-btn:hover::before {
+  opacity: 1;
+}
+.music-btn:hover {
   transform: translateY(-3px);
   /* 悬停时向上浮动 */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
   /* 增强阴影效果 */
 }
-#music:active {
+.music-btn:active {
   transform: translateY(0);
   /* 点击时恢复位置 */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
