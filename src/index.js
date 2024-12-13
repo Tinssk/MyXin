@@ -2,7 +2,8 @@
 import { setANICursor } from "ani-cursor.js";
 setANICursor("body", "./cursor/normal.ani");
 setANICursor(".slogan .try-btn", "./cursor/Link.ani");
-setANICursor("#music", "./cursor/Link.ani");
+setANICursor(".music-btn", "./cursor/Link.ani");
+/*按钮设置链接*/
 document.getElementById("try-btn").onclick = function postNow() {
   location.href = "https://biyao.org";
 };
