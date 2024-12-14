@@ -40,7 +40,7 @@ body:active {
 .fade-in {
   opacity: 0; /* 初始透明度 */
   transform: translateY(-20px); /* 初始位置向上 */
-  transition: opacity 1s ease, transform 1s ease; /* 动画效果 */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* 动画效果 */
 }
 
 .fade-in.active {
@@ -159,7 +159,8 @@ body:active {
   opacity: 1;
 }
 .try-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.1); /* 悬停效果 */
+  transition: transform 0.3s ease;
   /* 悬停时向上浮动 */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
   /* 增强阴影效果 */
@@ -240,12 +241,11 @@ body:active {
   opacity: 1;
 }
 .music-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.1); /* 悬停效果 */
+  transition: transform 0.3s ease;
   /* 悬停时向上浮动 */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
   /* 增强阴影效果 */
-  width: 60px;
-  height: 60px;
 }
 .music-btn:active {
   transform: translateY(0);
