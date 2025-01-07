@@ -21,19 +21,6 @@ toggleButton.addEventListener("click", () => {
   }
 });
 /*--*/
-/*注册 Service Worker*/
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("./service-worker.js", { scope: "/MyXin/" })
-      .then(() => {
-        console.log("Service Worker registration successful");
-      })
-      .catch((err) => {
-        console.log("Service worker registration failed");
-      });
-  });
-}
 
 /*添加点击特效*/
 (function () {
