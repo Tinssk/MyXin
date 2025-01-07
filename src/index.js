@@ -23,14 +23,14 @@ toggleButton.addEventListener("click", () => {
 /*--*/
 /*注册 Service Worker*/
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
+  window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("./service-worker.js")
-      .then(function (registration) {
-        console.log("Service Worker 注册成功：", registration.scope);
+      .register("./service-worker.js", { scope: "/" })
+      .then(() => {
+        console.log("Service Worker registration successful");
       })
-      .catch(function (error) {
-        console.log("Service Worker 注册失败：", error);
+      .catch((err) => {
+        console.log("Service worker registration failed");
       });
   });
 }
