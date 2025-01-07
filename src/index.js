@@ -29,10 +29,14 @@ toggleButton.addEventListener("click", () => {
 
     var heart = document.createElement("b"); //创建b元素
     heart.onselectstart = new Function("event.returnValue=false"); //防止拖动
+    var clickani = document.createElement("img"); //创建gif播放元素
+    clickani.onselectstart = new Function("event.returnValue=false"); //防止拖动
+    clickani.src = "./clickAni.gif";
+    clickani.alt = "clickAni";
 
     document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+    document.body.appendChild(clickani); //添加gif播放
     a_idx = (a_idx + 1) % a.length;
-    heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
 
     var f = 16, // 字体大小
       x = event.clientX - f / 2, // 横坐标
@@ -41,6 +45,16 @@ toggleButton.addEventListener("click", () => {
       a = 1, // 透明度
       s = 1.2; // 放大缩小
 
+    heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+    clickani.style.cssText = "position: fixed;left:" + x + "px;top:" + y + "px;" + "width: 150px;height: 150px;transform: translate(-50%, -50%);"; //设置gif样式
+
+    // 设置 GIF 播放结束后的销毁时间
+    var gifDuration = 300; // 假设 GIF 播放时长为 3 秒（调整为实际时长）
+
+    setTimeout(function () {
+      // 动画播放完后移除 GIF
+      document.body.removeChild(clickani);
+    }, gifDuration);
     var timer = setInterval(function () {
       //添加定时器
       if (a <= 0) {
