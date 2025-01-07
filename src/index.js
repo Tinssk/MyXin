@@ -31,7 +31,7 @@ toggleButton.addEventListener("click", () => {
     heart.onselectstart = new Function("event.returnValue=false"); //防止拖动
     var clickani = document.createElement("img"); //创建gif播放元素
     clickani.onselectstart = new Function("event.returnValue=false"); //防止拖动
-    clickani.src = "./clickAni.gif";
+    clickani.src = "./clickAni.gif?nocache=" + new Date().getTime();
     clickani.alt = "clickAni";
 
     document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
