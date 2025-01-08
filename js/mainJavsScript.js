@@ -21,6 +21,37 @@ toggleButton.addEventListener("click", () => {
   }
 });
 /*--*/
+// 注销所有的 Service Worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .getRegistrations()
+    .then(function (registrations) {
+      registrations.forEach(function (registration) {
+        registration.unregister().then(function (success) {
+          if (success) {
+            console.log("Service Worker 已注销");
+          } else {
+            console.log("Service Worker 注销失败");
+          }
+        });
+      });
+    })
+    .catch(function (error) {
+      console.error("获取注册的 Service Worker 失败: ", error);
+    });
+
+  // 可选：删除相关的缓存
+  caches.keys().then(function (cacheNames) {
+    cacheNames.forEach(function (cacheName) {
+      caches.delete(cacheName).then(function (deleted) {
+        if (deleted) {
+          console.log("缓存 " + cacheName + " 已删除");
+        }
+      });
+    });
+  });
+}
+
 /*添加点击特效*/
 (function () {
   var a_idx = 0;
@@ -29,10 +60,21 @@ toggleButton.addEventListener("click", () => {
 
     var heart = document.createElement("b"); //创建b元素
     heart.onselectstart = new Function("event.returnValue=false"); //防止拖动
+    var clickani = document.createElement("video"); //创建gif播放元素
+    clickani.onselectstart = new Function("event.returnValue=false"); //防止拖动
+    clickani.src = "./clickAni.webm";
+    clickani.alt = "clickAni";
+    // 为 video 元素添加属性
+    clickani.setAttribute("width", "150");
+    clickani.setAttribute("height", "150");
+    clickani.setAttribute("muted", "muted");
+    clickani.setAttribute("autoplay", "autoplay");
+    clickani.setAttribute("preload", "auto");
+    clickani.setAttribute("type", "video/webm");
 
     document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+    document.body.appendChild(clickani); //添加视频特效播放
     a_idx = (a_idx + 1) % a.length;
-    heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
 
     var f = 16, // 字体大小
       x = event.clientX - f / 2, // 横坐标
@@ -40,6 +82,14 @@ toggleButton.addEventListener("click", () => {
       c = randomColor(), // 随机颜色
       a = 1, // 透明度
       s = 1.2; // 放大缩小
+
+    heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+    clickani.style.cssText = "position: fixed;left:" + x + "px;top:" + y + "px;" + "width: 150px;height: 150px;transform: translate(-50%, -50%);"; //设置gif样式
+    //移除视频元素
+    clickani.addEventListener("ended", () => {
+      clickani.pause(); // 停止播放
+      clickani.parentNode.removeChild(clickani); // 移除视频元素
+    });
 
     var timer = setInterval(function () {
       //添加定时器
@@ -61,14 +111,15 @@ toggleButton.addEventListener("click", () => {
   }
 })();
 /* ---*/
-/*设置鼠标按下时的样式(无法用css原生支持*/
-document.addEventListener("mousedown", function () {
-  document.body.style.cursor = 'url("./cursor/ArrowActice.png"), auto'; // 点击时的鼠标样式
-});
+// /*设置鼠标按下时的样式(无法用css原生支持*/
+// 现在使用动态鼠标,暂时将这个取消
+// document.addEventListener("mousedown", function () {
+//   document.body.style.cursor = 'url("./cursor/ArrowActice.png"), auto'; // 点击时的鼠标样式
+// });
 
-document.addEventListener("mouseup", function () {
-  document.body.style.cursor = 'url("./cursor/Arrow.png"), auto'; // 松开鼠标恢复默认样式
-});
+// document.addEventListener("mouseup", function () {
+//   document.body.style.cursor = 'url("./cursor/Arrow.png"), auto'; // 松开鼠标恢复默认样式
+// });
 
 /*添加浮现效果*/
 // script.js
