@@ -87,7 +87,6 @@ if ("serviceWorker" in navigator) {
     clickani.style.cssText = "position: fixed;left:" + x + "px;top:" + y + "px;" + "width: 150px;height: 150px;transform: translate(-50%, -50%);"; //设置gif样式
     //移除视频元素
     clickani.addEventListener("ended", () => {
-      console.log("Video ended.");
       clickani.pause(); // 停止播放
       clickani.parentNode.removeChild(clickani); // 移除视频元素
     });
