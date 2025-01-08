@@ -88,7 +88,6 @@ if ("serviceWorker" in navigator) {
     //移除视频元素
     clickani.addEventListener("ended", () => {
       console.log("Video ended.");
-      console.log(clickani.parentNode);
       clickani.pause(); // 停止播放
       clickani.parentNode.removeChild(clickani); // 移除视频元素
     });
