@@ -21,6 +21,36 @@ toggleButton.addEventListener("click", () => {
   }
 });
 /*--*/
+// 注销所有的 Service Worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .getRegistrations()
+    .then(function (registrations) {
+      registrations.forEach(function (registration) {
+        registration.unregister().then(function (success) {
+          if (success) {
+            console.log("Service Worker 已注销");
+          } else {
+            console.log("Service Worker 注销失败");
+          }
+        });
+      });
+    })
+    .catch(function (error) {
+      console.error("获取注册的 Service Worker 失败: ", error);
+    });
+
+  // 可选：删除相关的缓存
+  caches.keys().then(function (cacheNames) {
+    cacheNames.forEach(function (cacheName) {
+      caches.delete(cacheName).then(function (deleted) {
+        if (deleted) {
+          console.log("缓存 " + cacheName + " 已删除");
+        }
+      });
+    });
+  });
+}
 
 /*添加点击特效*/
 (function () {
