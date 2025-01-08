@@ -30,13 +30,21 @@ toggleButton.addEventListener("click", () => {
 
     var heart = document.createElement("b"); //创建b元素
     heart.onselectstart = new Function("event.returnValue=false"); //防止拖动
-    var clickani = document.createElement("img"); //创建gif播放元素
+    var clickani = document.createElement("video"); //创建gif播放元素
     clickani.onselectstart = new Function("event.returnValue=false"); //防止拖动
-    clickani.src = "./clickAni.gif?nocache=" + new Date().getTime();
+    clickani.src = "./clickAni.webm";
     clickani.alt = "clickAni";
+    // 为 video 元素添加属性
+    clickani.setAttribute("width", "150");
+    clickani.setAttribute("height", "150");
+    clickani.setAttribute("muted", "muted");
+    clickani.setAttribute("autoplay", "autoplay");
+    clickani.setAttribute("preload", "auto");
+    clickani.setAttribute("src", "./webwxgetmsgimg.webm");
+    clickani.setAttribute("type", "video/webm");
 
     document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
-    document.body.appendChild(clickani); //添加gif播放
+    document.body.appendChild(clickani); //添加视频特效播放
     a_idx = (a_idx + 1) % a.length;
 
     var f = 16, // 字体大小
@@ -48,7 +56,11 @@ toggleButton.addEventListener("click", () => {
 
     heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
     clickani.style.cssText = "position: fixed;left:" + x + "px;top:" + y + "px;" + "width: 150px;height: 150px;transform: translate(-50%, -50%);"; //设置gif样式
-
+    clickani.addEventListener("ended", () => {
+      console.log("Video ended.");
+      clickani.pause(); // 停止播放
+      video.parentNode.removeChild(video); // 移除视频元素
+    });
     // 设置 GIF 播放结束后的销毁时间
     var gifDuration = 300; // 假设 GIF 播放时长为 3 秒（调整为实际时长）
 
