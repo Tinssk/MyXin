@@ -112,14 +112,15 @@ if ("serviceWorker" in navigator) {
   }
 })();
 /* ---*/
-/*设置鼠标按下时的样式(无法用css原生支持*/
-document.addEventListener("mousedown", function () {
-  document.body.style.cursor = 'url("./cursor/ArrowActice.png"), auto'; // 点击时的鼠标样式
-});
+// /*设置鼠标按下时的样式(无法用css原生支持*/
+// 现在使用动态鼠标,暂时将这个取消
+// document.addEventListener("mousedown", function () {
+//   document.body.style.cursor = 'url("./cursor/ArrowActice.png"), auto'; // 点击时的鼠标样式
+// });
 
-document.addEventListener("mouseup", function () {
-  document.body.style.cursor = 'url("./cursor/Arrow.png"), auto'; // 松开鼠标恢复默认样式
-});
+// document.addEventListener("mouseup", function () {
+//   document.body.style.cursor = 'url("./cursor/Arrow.png"), auto'; // 松开鼠标恢复默认样式
+// });
 
 /*添加浮现效果*/
 // script.js
