@@ -40,7 +40,6 @@ toggleButton.addEventListener("click", () => {
     clickani.setAttribute("muted", "muted");
     clickani.setAttribute("autoplay", "autoplay");
     clickani.setAttribute("preload", "auto");
-    clickani.setAttribute("src", "./webwxgetmsgimg.webm");
     clickani.setAttribute("type", "video/webm");
 
     document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
@@ -56,18 +55,14 @@ toggleButton.addEventListener("click", () => {
 
     heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
     clickani.style.cssText = "position: fixed;left:" + x + "px;top:" + y + "px;" + "width: 150px;height: 150px;transform: translate(-50%, -50%);"; //设置gif样式
+    //移除视频元素
     clickani.addEventListener("ended", () => {
       console.log("Video ended.");
+      console.log(clickani.parentNode);
       clickani.pause(); // 停止播放
-      video.parentNode.removeChild(video); // 移除视频元素
+      clickani.parentNode.removeChild(clickani); // 移除视频元素
     });
-    // 设置 GIF 播放结束后的销毁时间
-    var gifDuration = 300; // 假设 GIF 播放时长为 3 秒（调整为实际时长）
 
-    setTimeout(function () {
-      // 动画播放完后移除 GIF
-      document.body.removeChild(clickani);
-    }, gifDuration);
     var timer = setInterval(function () {
       //添加定时器
       if (a <= 0) {
