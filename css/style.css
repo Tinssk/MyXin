@@ -127,7 +127,7 @@ body {
   line-height: 54px;
   margin-top: 40px;
   margin-left: -78px;
-  color: #fbfbfd;
+  color: #ffffff;
   background: linear-gradient(45deg, #f4f4f5, #3dcba0);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   /* 添加阴影效果 */
@@ -149,7 +149,6 @@ body {
   background: linear-gradient(135deg, #3dcba0, #f4f4f5);
   opacity: 0;
   transition: opacity 0.4s ease;
-
   border-radius: 100px;
   z-index: -1;
 }

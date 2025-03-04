@@ -7,6 +7,14 @@ setANICursor(".music-btn", "./cursor/Link.ani");
 document.getElementById("try-btn").onclick = function postNow() {
   location.href = "https://biyao.org";
 };
+/*为div按钮设置tab下的可Enter激活*/
+document.onkeydown = function (e) {
+  if (e.keyCode === 13) {
+    // The Enter/Return key
+    document.activeElement.onclick(e);
+  }
+};
+
 /*把视频设置为有声音,方便以后改动*/
 const video = document.querySelector(".video-background");
 const toggleButton = document.getElementById("music"); //获取声音按钮开关
